@@ -7,12 +7,16 @@ import org.bukkit.command.CommandSender;
 
 public class ToggleSheepCmd implements CommandExecutor {
 
-	ConfigFile cfg = new ConfigFile();
+	private final ConfigFile cfg;
+
+	public ToggleSheepCmd(ConfigFile cfg) {
+		this.cfg = cfg;
+	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] args) {
-		if (!sender.hasPermission(cfg.getPermission())) {
-			sender.sendMessage(cfg.getPermissionMessage());
+		if (!sender.hasPermission(cfg.PERMISSION)) {
+			sender.sendMessage(cfg.PERMISSION_MESSAGE);
 			return true;
 		}
 	if (args.length == 0) {
@@ -20,22 +24,21 @@ public class ToggleSheepCmd implements CommandExecutor {
 		return true;
 		}
 		if (args[0].equalsIgnoreCase("off")) {
-			if (Main.getPlugin(Main.class).getConfig().getBoolean("explozsivesheep") == true) {
-				Main.getPlugin(Main.class).getConfig().set("explozsivesheep", Boolean.valueOf(false));
-				Main.getPlugin(Main.class).saveConfig();
-				sender.sendMessage(cfg.getDisableSheepMessage());
+			if (Main.getMain().getConfig().getBoolean("explozsivesheep")) {
+				Main.getMain().getConfig().set("explozsivesheep", Boolean.FALSE);
+				Main.getMain().saveConfig();
+				sender.sendMessage(cfg.DISABLE_SHEEP_MESSGAE);
 			} else {
 				sender.sendMessage(ChatColor.DARK_RED + "Explosive sheep is already disable");
 			}
 		}
 		if (args[0].equalsIgnoreCase("on")) {
-			if (Main.getPlugin(Main.class).getConfig().getBoolean("explozsivesheep") == false) {
-				Main.getPlugin(Main.class).getConfig().set("explozsivesheep", Boolean.valueOf(true));
-				Main.getPlugin(Main.class).saveConfig();
-				sender.sendMessage(cfg.getEnableSheepMessage());
+			if (!Main.getMain().getConfig().getBoolean("explozsivesheep")) {
+				Main.getMain().getConfig().set("explozsivesheep", Boolean.TRUE);
+				Main.getMain().saveConfig();
+				sender.sendMessage(cfg.ENABLE_SHEEP_MESSAGE);
 			}
 		}
-
 		return false;
 	}
 

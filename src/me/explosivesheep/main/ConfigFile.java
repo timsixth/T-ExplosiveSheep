@@ -1,31 +1,18 @@
 package me.explosivesheep.main;
 
-import org.bukkit.ChatColor;
-
 public class ConfigFile {
 
-	public String getPermissionMessage() {
-		return ChatColor.translateAlternateColorCodes('&',
-				Main.getMain().getConfig().getString("nopermission"));
-	}
+    public String PERMISSION_MESSAGE = "";
+    public String ENABLE_SHEEP_MESSAGE = "";
+    public String DISABLE_SHEEP_MESSGAE = "";
+    public String SHEEP_NAME = "";
+    public String PERMISSION = "";
 
-	public String getEnableSheepMessage() {
-		return ChatColor.translateAlternateColorCodes('&',
-				Main.getMain().getConfig().getString("enablesheep"));
-	}
-
-	public String getSheepNameMessage() {
-		return ChatColor.translateAlternateColorCodes('&', Main.getMain().getConfig().getString("sheepname"));
-	}
-
-	public String getPermission() {
-		return Main.getMain().getConfig().getString("permission");
-	}
-
-	public String getDisableSheepMessage() {
-		return ChatColor.translateAlternateColorCodes('&',
-				Main.getMain().getConfig().getString("disablesheep"));
-	}
-
-
+    public ConfigFile() {
+        PERMISSION_MESSAGE = ChatUtil.chatColor(Main.getMain().getConfig().getString("messages.nopermission"));
+        ENABLE_SHEEP_MESSAGE = ChatUtil.chatColor(Main.getMain().getConfig().getString("messages.enablesheep"));
+        SHEEP_NAME = ChatUtil.chatColor(Main.getMain().getConfig().getString("messages.sheepname"));
+        DISABLE_SHEEP_MESSGAE = ChatUtil.chatColor(Main.getMain().getConfig().getString("messages.disablesheep"));
+        PERMISSION = Main.getMain().getConfig().getString("permission");
+    }
 }
