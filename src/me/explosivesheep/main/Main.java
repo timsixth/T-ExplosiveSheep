@@ -11,6 +11,9 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         if (this.getDescription().getAuthors().contains("timsixth (Idea by RokeR)") && this.getDescription().getName().contains("T-ExplosiveSheep")) {
             getLogger().info("Plugin enabled!");
+            int pluginId = 11608; // <-- Replace with the id of your plugin!
+            Metrics metrics = new Metrics(this, pluginId);
+
             ConfigFile cfg = new ConfigFile();
             Bukkit.getPluginManager().registerEvents(new FeedSheepTNTListner(cfg), this);
             getCommand("togglesheep").setExecutor(new ToggleSheepCmd(cfg));
