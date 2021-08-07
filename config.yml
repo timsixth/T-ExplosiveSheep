@@ -1,0 +1,7 @@
+permission: 'timsixth.sheep'
+explozsivesheep: false
+messages:
+  nopermission: '&cYou dont have permission'
+  disablesheep: '&cExplosive sheep is disabled!'
+  sheepname: '&4Explosive Sheep'
+  enablesheep: '&aExplosive sheep is enabled!'
