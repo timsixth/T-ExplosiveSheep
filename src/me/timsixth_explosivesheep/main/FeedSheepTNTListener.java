@@ -1,4 +1,4 @@
-package me.explosivesheep.main;
+package me.timsixth_explosivesheep.main;
 
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
