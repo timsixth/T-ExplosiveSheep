@@ -1,4 +1,4 @@
-package me.timsixth_explosivesheep.main;
+package me.timsixth.explosivesheep;
 
 import org.bukkit.ChatColor;
 
