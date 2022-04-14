@@ -13,5 +13,4 @@ public final class Main extends JavaPlugin {
         this.getConfig().options().copyDefaults(true);
         saveConfig();
     }
-
 }

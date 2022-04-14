@@ -6,4 +6,4 @@ messages:
   sheepname: '&4Explosive Sheep'
   enablesheep: '&aExplosive sheep is enabled!'
   correctuse: '&cCorrect use: /togglesheep <on|off>'
-  sheep_is_disabled: '&cExplosive sheep is already disabled';
+  sheep_is_disabled: '&cExplosive sheep is already disabled'
