@@ -26,21 +26,23 @@ public class ToggleSheepCommand implements CommandExecutor {
         }
         if (args[0].equalsIgnoreCase("off")) {
             if (main.getConfig().getBoolean("explozsivesheep")) {
-                main.getConfig().set("explozsivesheep", Boolean.FALSE);
-                main.saveConfig();
-                sender.sendMessage(configFile.DISABLE_SHEEP_MESSAGE);
+                switchExplosiveSheep(sender,Boolean.FALSE,configFile.DISABLE_SHEEP_MESSAGE);
             } else {
                 sender.sendMessage(configFile.SHEEP_IS_DISABLED_MESSAGE);
             }
         }
         if (args[0].equalsIgnoreCase("on")) {
             if (!main.getConfig().getBoolean("explozsivesheep")) {
-                main.getConfig().set("explozsivesheep", Boolean.TRUE);
-                main.saveConfig();
-                sender.sendMessage(configFile.ENABLE_SHEEP_MESSAGE);
+                switchExplosiveSheep(sender,Boolean.TRUE,configFile.ENABLE_SHEEP_MESSAGE);
             }
         }
         return false;
+    }
+
+    private void switchExplosiveSheep(CommandSender sender,Boolean arg,String message) {
+        main.getConfig().set("explozsivesheep", arg);
+        main.saveConfig();
+        sender.sendMessage(message);
     }
 
 }
