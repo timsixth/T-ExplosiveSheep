@@ -5,6 +5,7 @@ import pl.timsixth.explosivesheep.config.ConfigFile;
 import pl.timsixth.explosivesheep.listener.FeedSheepTNTListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import pl.timsixth.explosivesheep.tabcomplter.ToggleSheepCommandTabCompleter;
 
 public final class ExplosiveSheepPlugin extends JavaPlugin {
 
@@ -13,6 +14,7 @@ public final class ExplosiveSheepPlugin extends JavaPlugin {
         ConfigFile configFile = new ConfigFile(this);
         Bukkit.getPluginManager().registerEvents(new FeedSheepTNTListener(configFile, this), this);
         getCommand("togglesheep").setExecutor(new ToggleSheepCommand(configFile, this));
+        getCommand("togglesheep").setTabCompleter(new ToggleSheepCommandTabCompleter());
         this.getConfig().options().copyDefaults(true);
         saveConfig();
     }
