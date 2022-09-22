@@ -1,5 +1,7 @@
-package me.timsixth.explosivesheep;
+package me.timsixth.explosivesheep.command;
 
+import me.timsixth.explosivesheep.ExplosiveSheepPlugin;
+import me.timsixth.explosivesheep.config.ConfigFile;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -7,11 +9,11 @@ import org.bukkit.command.CommandSender;
 public class ToggleSheepCommand implements CommandExecutor {
 
     private final ConfigFile configFile;
-    private final Main main;
+    private final ExplosiveSheepPlugin explosiveSheepPlugin;
 
-    public ToggleSheepCommand(ConfigFile configFile, Main main) {
+    public ToggleSheepCommand(ConfigFile configFile, ExplosiveSheepPlugin explosiveSheepPlugin) {
         this.configFile = configFile;
-        this.main = main;
+        this.explosiveSheepPlugin = explosiveSheepPlugin;
     }
 
     @Override
@@ -25,14 +27,14 @@ public class ToggleSheepCommand implements CommandExecutor {
             return true;
         }
         if (args[0].equalsIgnoreCase("off")) {
-            if (main.getConfig().getBoolean("explozsivesheep")) {
+            if (explosiveSheepPlugin.getConfig().getBoolean("explozsivesheep")) {
                 switchExplosiveSheep(sender,Boolean.FALSE,configFile.DISABLE_SHEEP_MESSAGE);
             } else {
                 sender.sendMessage(configFile.SHEEP_IS_DISABLED_MESSAGE);
             }
         }
         if (args[0].equalsIgnoreCase("on")) {
-            if (!main.getConfig().getBoolean("explozsivesheep")) {
+            if (!explosiveSheepPlugin.getConfig().getBoolean("explozsivesheep")) {
                 switchExplosiveSheep(sender,Boolean.TRUE,configFile.ENABLE_SHEEP_MESSAGE);
             }
         }
@@ -40,8 +42,8 @@ public class ToggleSheepCommand implements CommandExecutor {
     }
 
     private void switchExplosiveSheep(CommandSender sender,Boolean arg,String message) {
-        main.getConfig().set("explozsivesheep", arg);
-        main.saveConfig();
+        explosiveSheepPlugin.getConfig().set("explozsivesheep", arg);
+        explosiveSheepPlugin.saveConfig();
         sender.sendMessage(message);
     }
 

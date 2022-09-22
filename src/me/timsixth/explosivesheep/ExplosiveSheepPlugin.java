@@ -1,9 +1,12 @@
 package me.timsixth.explosivesheep;
 
+import me.timsixth.explosivesheep.command.ToggleSheepCommand;
+import me.timsixth.explosivesheep.config.ConfigFile;
+import me.timsixth.explosivesheep.listener.FeedSheepTNTListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Main extends JavaPlugin {
+public final class ExplosiveSheepPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
