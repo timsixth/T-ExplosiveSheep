@@ -1,7 +1,7 @@
-package me.timsixth.explosivesheep.listener;
+package pl.timsixth.explosivesheep.listener;
 
-import me.timsixth.explosivesheep.ExplosiveSheepPlugin;
-import me.timsixth.explosivesheep.config.ConfigFile;
+import pl.timsixth.explosivesheep.ExplosiveSheepPlugin;
+import pl.timsixth.explosivesheep.config.ConfigFile;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;

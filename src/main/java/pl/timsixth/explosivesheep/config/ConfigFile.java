@@ -1,7 +1,7 @@
-package me.timsixth.explosivesheep.config;
+package pl.timsixth.explosivesheep.config;
 
-import me.timsixth.explosivesheep.ExplosiveSheepPlugin;
-import me.timsixth.explosivesheep.util.ChatUtil;
+import pl.timsixth.explosivesheep.ExplosiveSheepPlugin;
+import pl.timsixth.explosivesheep.util.ChatUtil;
 
 public class ConfigFile {
 

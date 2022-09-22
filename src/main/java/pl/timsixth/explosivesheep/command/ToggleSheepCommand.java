@@ -1,7 +1,7 @@
-package me.timsixth.explosivesheep.command;
+package pl.timsixth.explosivesheep.command;
 
-import me.timsixth.explosivesheep.ExplosiveSheepPlugin;
-import me.timsixth.explosivesheep.config.ConfigFile;
+import pl.timsixth.explosivesheep.ExplosiveSheepPlugin;
+import pl.timsixth.explosivesheep.config.ConfigFile;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
