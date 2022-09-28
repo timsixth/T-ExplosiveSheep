@@ -5,7 +5,7 @@ import pl.timsixth.explosivesheep.config.ConfigFile;
 import pl.timsixth.explosivesheep.listener.FeedSheepTNTListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import pl.timsixth.explosivesheep.tabcomplter.ToggleSheepCommandTabCompleter;
+import pl.timsixth.explosivesheep.tabcompleter.ToggleSheepCommandTabCompleter;
 
 public final class ExplosiveSheepPlugin extends JavaPlugin {
 

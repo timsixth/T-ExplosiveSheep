@@ -1,4 +1,4 @@
-package pl.timsixth.explosivesheep.tabcomplter;
+package pl.timsixth.explosivesheep.tabcompleter;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
