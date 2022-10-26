@@ -7,3 +7,5 @@ messages:
   enablesheep: '&aExplosive sheep is enabled!'
   correctuse: '&cCorrect use: /togglesheep <on|off>'
   sheep_is_disabled: '&cExplosive sheep is already disabled'
+  correct_use_admin_command: '&cCorrect use /explosivesheep reload'
+  files_reloaded: '&aConfig have been reloaded successfully'

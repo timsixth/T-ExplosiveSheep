@@ -1,6 +1,7 @@
 author: timsixth (Idea by RokeR)
 main: pl.timsixth.explosivesheep.ExplosiveSheepPlugin
-version: 1.4
+version: 1.4.1
 name: T-ExplosiveSheep
 commands:
   togglesheep:
+  explosivesheep:
