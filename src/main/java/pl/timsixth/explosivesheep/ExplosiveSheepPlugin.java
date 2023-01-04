@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.timsixth.explosivesheep.tabcompleter.AdminExplosiveSheepCommandTabCompleter;
 import pl.timsixth.explosivesheep.tabcompleter.ToggleSheepCommandTabCompleter;
+import pl.timsixth.explosivesheep.version.VersionChecker;
 
 public final class ExplosiveSheepPlugin extends JavaPlugin {
 
@@ -21,5 +22,7 @@ public final class ExplosiveSheepPlugin extends JavaPlugin {
         getCommand("explosivesheep").setTabCompleter(new AdminExplosiveSheepCommandTabCompleter());
         this.getConfig().options().copyDefaults(true);
         saveConfig();
+
+        new VersionChecker(this).checkVersion();
     }
 }
