@@ -9,3 +9,5 @@ messages:
   sheep_is_disabled: '&cExplosive sheep is already disabled'
   correct_use_admin_command: '&cCorrect use /explosivesheep reload'
   files_reloaded: '&aConfig have been reloaded successfully'
+  only_players: 'Only players cna use this command'
+  spawned_sheep: '&aYou have spawned explosive sheep'

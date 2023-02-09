@@ -1,6 +1,7 @@
 package pl.timsixth.explosivesheep;
 
 import pl.timsixth.explosivesheep.command.AdminExplosiveSheepCommand;
+import pl.timsixth.explosivesheep.command.SpawnSheepCommand;
 import pl.timsixth.explosivesheep.command.ToggleSheepCommand;
 import pl.timsixth.explosivesheep.config.ConfigFile;
 import pl.timsixth.explosivesheep.listener.FeedSheepTNTListener;
@@ -12,17 +13,28 @@ import pl.timsixth.explosivesheep.version.VersionChecker;
 
 public final class ExplosiveSheepPlugin extends JavaPlugin {
 
+    private ConfigFile configFile;
+
     @Override
     public void onEnable() {
-        ConfigFile configFile = new ConfigFile(this);
+        configFile = new ConfigFile(this);
         Bukkit.getPluginManager().registerEvents(new FeedSheepTNTListener(configFile, this), this);
-        getCommand("explosivesheep").setExecutor(new AdminExplosiveSheepCommand(configFile));
-        getCommand("togglesheep").setExecutor(new ToggleSheepCommand(configFile, this));
-        getCommand("togglesheep").setTabCompleter(new ToggleSheepCommandTabCompleter());
-        getCommand("explosivesheep").setTabCompleter(new AdminExplosiveSheepCommandTabCompleter());
+        registerCommands();
+        registerTabCompleters();
         this.getConfig().options().copyDefaults(true);
         saveConfig();
 
         new VersionChecker(this).checkVersion();
+    }
+
+    private void registerTabCompleters() {
+        getCommand("togglesheep").setTabCompleter(new ToggleSheepCommandTabCompleter());
+        getCommand("explosivesheep").setTabCompleter(new AdminExplosiveSheepCommandTabCompleter());
+    }
+
+    private void registerCommands() {
+        getCommand("explosivesheep").setExecutor(new AdminExplosiveSheepCommand(configFile));
+        getCommand("togglesheep").setExecutor(new ToggleSheepCommand(configFile, this));
+        getCommand("spawnsheep").setExecutor(new SpawnSheepCommand(configFile, this));
     }
 }

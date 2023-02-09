@@ -1,17 +1,16 @@
 package pl.timsixth.explosivesheep.listener;
 
-import pl.timsixth.explosivesheep.ExplosiveSheepPlugin;
-import pl.timsixth.explosivesheep.config.ConfigFile;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitRunnable;
+import pl.timsixth.explosivesheep.ExplosiveSheepPlugin;
+import pl.timsixth.explosivesheep.config.ConfigFile;
+import pl.timsixth.explosivesheep.task.ExplodeSheepTask;
 
 public class FeedSheepTNTListener implements Listener {
 
@@ -34,14 +33,7 @@ public class FeedSheepTNTListener implements Listener {
                     sheep.setColor(DyeColor.RED);
                     sheep.setCustomName(configFile.SHEEP_NAME);
                     sheep.setCustomNameVisible(true);
-                    new BukkitRunnable() {
-
-                        @Override
-                        public void run() {
-                            sheep.remove();
-                            sheep.getLocation().getWorld().spawnEntity(sheep.getLocation(), EntityType.PRIMED_TNT);
-                        }
-                    }.runTaskLater(explosiveSheepPlugin, 100);
+                    new ExplodeSheepTask(sheep).runTaskLater(explosiveSheepPlugin, 100);
                 } else {
                     player.sendMessage(configFile.DISABLE_SHEEP_MESSAGE);
 				}

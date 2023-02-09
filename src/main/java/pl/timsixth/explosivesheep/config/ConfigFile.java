@@ -5,6 +5,7 @@ import pl.timsixth.explosivesheep.util.ChatUtil;
 
 public class ConfigFile {
 
+
     public String PERMISSION_MESSAGE;
     public String ENABLE_SHEEP_MESSAGE;
     public String DISABLE_SHEEP_MESSAGE;
@@ -13,8 +14,9 @@ public class ConfigFile {
     public String SHEEP_NAME;
     public String PERMISSION;
     public String FILES_RELOADED;
-
     public String CORRECT_USE_ADMIN_COMMAND;
+    public String ONLY_PLAYERS;
+    public String SPAWNED_SHEEP;
     private final ExplosiveSheepPlugin explosiveSheepPlugin;
 
     public ConfigFile(ExplosiveSheepPlugin explosiveSheepPlugin) {
@@ -31,6 +33,9 @@ public class ConfigFile {
         SHEEP_IS_DISABLED_MESSAGE = ChatUtil.chatColor(explosiveSheepPlugin.getConfig().getString("messages.sheep_is_disabled"));
         FILES_RELOADED = ChatUtil.chatColor(explosiveSheepPlugin.getConfig().getString("messages.files_reloaded"));
         CORRECT_USE_ADMIN_COMMAND = ChatUtil.chatColor(explosiveSheepPlugin.getConfig().getString("messages.correct_use_admin_command"));
+        ONLY_PLAYERS = ChatUtil.chatColor(explosiveSheepPlugin.getConfig().getString("messages.only_players"));
+        SPAWNED_SHEEP = ChatUtil.chatColor(explosiveSheepPlugin.getConfig().getString("messages.spawned_sheep"));
+
         PERMISSION = explosiveSheepPlugin.getConfig().getString("permission");
     }
 
