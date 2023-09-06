@@ -1,12 +1,13 @@
 package pl.timsixth.explosivesheep;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+import pl.timsixth.explosivesheep.bstats.Metrics;
 import pl.timsixth.explosivesheep.command.AdminExplosiveSheepCommand;
 import pl.timsixth.explosivesheep.command.SpawnSheepCommand;
 import pl.timsixth.explosivesheep.command.ToggleSheepCommand;
 import pl.timsixth.explosivesheep.config.ConfigFile;
-import pl.timsixth.explosivesheep.listener.FeedSheepTNTListener;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
+import pl.timsixth.explosivesheep.listener.PlayerInteractEntityListener;
 import pl.timsixth.explosivesheep.tabcompleter.AdminExplosiveSheepCommandTabCompleter;
 import pl.timsixth.explosivesheep.tabcompleter.ToggleSheepCommandTabCompleter;
 import pl.timsixth.explosivesheep.version.VersionChecker;
@@ -17,12 +18,17 @@ public final class ExplosiveSheepPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        configFile = new ConfigFile(this);
-        Bukkit.getPluginManager().registerEvents(new FeedSheepTNTListener(configFile, this), this);
-        registerCommands();
-        registerTabCompleters();
         this.getConfig().options().copyDefaults(true);
         saveConfig();
+
+        configFile = new ConfigFile(this);
+
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractEntityListener(configFile, this), this);
+
+        registerCommands();
+        registerTabCompleters();
+
+        new Metrics(this, 19741);
 
         new VersionChecker(this).checkVersion();
     }
